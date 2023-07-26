@@ -1,8 +1,12 @@
 import './App.scss'
+import { QuoteSection } from './components/QuoteSection'
 
 export default function App() {
 
   return (<>
-    <h1>Frontend Mentor | Clock App</h1>
+    <div className="bg"></div>
+    <main>
+      <QuoteSection />
+    </main>
   </>)
 }

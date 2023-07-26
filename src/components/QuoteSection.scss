@@ -1,0 +1,83 @@
+.quote-section {
+  position: relative;
+  color: var(--white);
+  max-width: 573px;
+  padding-right: 24px;
+
+  blockquote {
+    font-size: 0.75rem;
+
+    a {
+      color: var(--white);
+    }
+  }
+
+  button {
+    position: absolute;
+    top: -6px;
+    right: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+
+    img {
+      height: 16px;
+    }
+
+    &:disabled {
+      img {
+        animation: 1s rotate infinite;
+      }
+    }
+  }
+
+  .error {
+    font-size: 0.75rem;
+    position: absolute;
+    right: -5px;
+    top: 35px;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+
+    &.visible {
+      display: block;
+      animation: .15s fadeIn ease-in;
+    }
+
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+      //background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid rgba(0, 0, 0, 0.5);
+      top: -10px;
+      right: 10px;
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

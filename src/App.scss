@@ -1,0 +1,51 @@
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+
+  background-image: url('./assets/images/bg-day-s.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  filter: brightness(60%);
+}
+
+
+.visually-hidden {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  user-select: none;
+}
+
+main {
+  padding: 24px;
+}
+
+@media screen and (min-width: 500px) {
+  .bg {
+    background-image: url('./assets/images/bg-day-m.webp');
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .bg {
+    background-image: url('./assets/images/bg-day-l.webp');
+  }
+}
+
+
+@media screen and (min-width: 1500px) {
+  .bg {
+    background-image: url('./assets/images/bg-day-xl.webp');
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .bg {
+    background-image: url('./assets/images/bg-day-xxl.webp');
+  }
+}
