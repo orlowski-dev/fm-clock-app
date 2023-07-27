@@ -1,11 +1,28 @@
+$halfTransparetnDark: rgba($color: #303030, $alpha: 80%);
+
 .quote-section {
   position: relative;
   color: var(--white);
   max-width: 573px;
   padding-right: 24px;
 
-  blockquote {
+  blockquote,
+  p {
     font-size: 0.75rem;
+  }
+
+  blockquote {
+    line-height: 1.75rem;
+    animation: .3s fadeIn ease-in;
+
+    cite {
+      display: block;
+      font-weight: 700;
+    }
+  }
+
+  p {
+    margin-top: 12px;
 
     a {
       color: var(--white);
@@ -33,13 +50,14 @@
   }
 
   .error {
+    cursor: pointer;
     font-size: 0.75rem;
     position: absolute;
     right: -5px;
     top: 35px;
     padding: 8px;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: $halfTransparetnDark;
     display: none;
 
     &.visible {
@@ -51,16 +69,45 @@
       content: '';
       width: 0;
       height: 0;
-      //background-color: rgba(0, 0, 0, 0.5);
       position: absolute;
       border-left: 10px solid transparent;
       border-right: 10px solid transparent;
-      border-bottom: 10px solid rgba(0, 0, 0, 0.5);
+      border-bottom: 10px solid $halfTransparetnDark;
       top: -10px;
       right: 10px;
     }
   }
 }
+
+
+@media screen and (min-width: 500px) {
+  .quote-section {
+    blockquote {
+      font-size: 1.125rem;
+      padding-right: 30px;
+    }
+
+    button {
+      padding: 4;
+
+      img {
+        height: 18px;
+      }
+    }
+  }
+}
+
+
+
+@media screen and (min-width: 1500px) {
+  .quote-section {
+    blockquote {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+@media screen and (min-width: 2000px) {}
 
 @keyframes rotate {
   from {

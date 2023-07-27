@@ -15,10 +15,12 @@
 
 
 .visually-hidden {
+  font-size: 0.5625rem;
   opacity: 0;
   position: absolute;
   z-index: -1;
   user-select: none;
+  left: 0;
 }
 
 main {

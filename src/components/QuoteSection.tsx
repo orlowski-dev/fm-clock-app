@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import './QuoteSection.scss'
 import { refreshIcon } from '../assets/icons_svg'
+import { getQuote } from './apisCalls'
 
 interface IQuote {
   content: string,
@@ -17,9 +18,17 @@ export const QuoteSection = () => {
     author: 'Ada Lovelace'
   })
 
-  const handleBtnClick = () => {
+  const handleBtnClick = async () => {
+    refs.gettingDataErrorSpan.current?.classList.remove('visible')
     setIsGenerateBtnDisabled(true)
-    refs.gettingDataErrorSpan.current?.classList.add('visible')
+
+    const data = await getQuote().then(data => data)
+    if (data) {
+      setQuote({ content: data[0], author: data[1] })
+    } else {
+      refs.gettingDataErrorSpan.current?.classList.add('visible')
+    }
+    setIsGenerateBtnDisabled(false)
   }
 
   return <section className="quote-section">
@@ -29,16 +38,21 @@ export const QuoteSection = () => {
       <cite>
         {quote.author}
       </cite>
-      <p>Powered by <a href="https://openai.com/blog/openai-api" rel='noreferrer noopener'>OpenAI</a></p>
     </blockquote>
+    <p>Powered by <a href="https://openai.com/blog/openai-api" rel='noreferrer noopener' target='_blank'>OpenAI</a></p>
     <button
       disabled={isGenerateBtnDisabled}
       title='Generate new quote'
       onClick={handleBtnClick}
     >
-      <span className="visually-hidden">Generate new quote</span>
+      <span className="visually-hidden">New quote</span>
       <img src={refreshIcon} alt="refresh icon" />
     </button>
-    <span className="error" ref={refs.gettingDataErrorSpan}>Something went wrong. Try again.</span>
+    <span
+      className="error"
+      ref={refs.gettingDataErrorSpan}
+      onClick={(e) => { (e.target as Element).classList.remove('visible') }}
+    >Something went wrong. Try again.</span>
   </section>
 }
+
