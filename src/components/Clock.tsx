@@ -41,13 +41,6 @@ export const Clock = () => {
       if (responseData && responseData.status !== 'fail') setLocationData(responseData)
     }
     getData()
-
-    const getNewData = async () => {
-      const responseData = await getNewIPLocationData().then(data => data)
-      console.log(responseData);
-
-    }
-    getNewData()
   }, [])
 
   const [currentTime, setCurrentTime] = useState<string>(getCurrentTime('pl'))

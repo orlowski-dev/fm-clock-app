@@ -51,11 +51,3 @@ export const getIPLocationData = async () => {
 
   return await response.json()
 }
-
-export const getNewIPLocationData = async () => {
-  const response = await fetch(`http://api.ipapi.com/api/check?access_key=${import.meta.env.IPAPI_KEY}`)
-    .then(res => res)
-  const responseData = await response.json()
-  console.log(responseData);
-
-}
