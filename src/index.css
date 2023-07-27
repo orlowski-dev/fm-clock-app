@@ -17,10 +17,7 @@
 *::before,
 &::after {
   box-sizing: border-box;
-  padding: 0 !important;
-  margin: 0 !important;
   outline: none !important;
-
 }
 
 body {
