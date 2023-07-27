@@ -15,6 +15,7 @@ $halfTransparetnDark: rgba($color: #303030, $alpha: 80%);
   blockquote {
     line-height: 1.75rem;
     animation: .3s fadeIn ease-in;
+    margin: 0 !important;
 
     cite {
       display: block;
@@ -62,7 +63,7 @@ $halfTransparetnDark: rgba($color: #303030, $alpha: 80%);
     display: none;
 
     &.visible {
-      display: block;
+      display: inline-block;
       animation: .15s fadeIn ease-in;
     }
 
