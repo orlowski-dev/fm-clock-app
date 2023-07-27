@@ -4,5 +4,5 @@ React + Vite + TypeScritp
 
 ## APIs
 - [OpenAI API](https://openai.com/blog/openai-api)
-- [ip-api](https://ip-api.com/docs/api:json)
+- [geo.ipify](https://geo.ipify.org/)
 ## Links

@@ -36,18 +36,15 @@ export const getQuote = async (): Promise<string[] | null> => {
   return [msg[1], msg[2].trimStart().trimEnd()]
 }
 
-export interface ILocationData {
-  status: string,
-  message?: string,
-  countryCode: string,
-  city: string,
-  timezone: string,
-  abbreviation?: string
+export interface IGeoLocation {
+  location?: {
+    city: string,
+    country: string,
+  }
 }
 
-export const getIPLocationData = async () => {
-  const response = await fetch('http://ip-api.com/json/?fields=status,message,countryCode,city,timezone')
-    .then(res => res)
-
+export const getGeoLocation = async () => {
+  const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${import.meta.env.VITE_GEO_API_KEY}`
+  const response = await fetch(url).then(res => res)
   return await response.json()
 }

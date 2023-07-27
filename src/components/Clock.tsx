@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { moonIcon, sunIcon, sunriseIcon, sunsetIcon } from "../assets/icons_svg"
 import './Clock.scss'
-import { ILocationData, getIPLocationData, getNewIPLocationData } from "./apisCalls"
+import { IGeoLocation, getGeoLocation } from "./apisCalls"
 
 const getCurrentTime = (locale: string): string => (
   new Date().toLocaleTimeString(locale, {
@@ -33,23 +33,25 @@ const getGreeting = (): { iconPath: string, text: string } => {
 }
 
 export const Clock = () => {
-  const [locationData, setLocationData] = useState<ILocationData>()
+  const [locationData, setLocationData] = useState<IGeoLocation>()
   // get ip location data
   useEffect(() => {
     const getData = async () => {
-      const responseData: ILocationData = await getIPLocationData().then(data => data)
-      if (responseData && responseData.status !== 'fail') setLocationData(responseData)
+      const response: IGeoLocation = await getGeoLocation().then(data => data)
+      if (!response.location) return
+      console.log(response);
+      setLocationData(response)
     }
     getData()
   }, [])
 
-  const [currentTime, setCurrentTime] = useState<string>(getCurrentTime('pl'))
+  const [currentTime, setCurrentTime] = useState<string>(getCurrentTime(locationData?.location?.country || 'pl'))
   const [greeting, setGreeting] = useState(getGreeting())
 
   // set clock and greeting
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTime(getCurrentTime('pl'))
+      setCurrentTime(getCurrentTime(locationData?.location?.country || 'pl'))
       setGreeting(getGreeting())
     }, 1000)
 
@@ -73,7 +75,7 @@ export const Clock = () => {
         <img src={greeting.iconPath} alt="icon" />
         {greeting.text}</p>
       <h1>{displayTime(currentTime)} <span className="abbr">BST</span></h1>
-      <p className="location">In {locationData?.city}, {locationData?.countryCode}</p>
+      <p className="location">In {locationData?.location?.city}, {locationData?.location?.country}</p>
     </section>
   )
 }
