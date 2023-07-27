@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.scss'
 import { Clock } from './components/Clock'
 import { QuoteSection } from './components/QuoteSection'
+import { Loader } from './components/Loader'
 
 const checkIfIsNight = () => {
   const hours = new Date().getHours()
@@ -22,7 +23,9 @@ export default function App() {
     }
   })
 
+
   return (<>
+    <Loader />
     <div className={`bg ${isNight ? 'night' : ''}`}></div>
     <main>
       <QuoteSection />

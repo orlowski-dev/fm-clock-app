@@ -21,7 +21,6 @@
   }
 }
 
-
 .visually-hidden {
   font-size: 0.5625rem;
   opacity: 0;
@@ -84,5 +83,29 @@ main {
     &.night {
       background-image: url('./assets/images/bg-night-xxl.webp');
     }
+  }
+}
+
+@keyframes curtainAnim {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes loadingAnim {
+  0% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(90deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
   }
 }
