@@ -46,10 +46,16 @@ export interface ILocationData {
 }
 
 export const getIPLocationData = async () => {
-  const response = await fetch('http://ip-api.com/json/?fields=status,message,countryCode,city,timezone', {
-    method: 'POST'
-  })
+  const response = await fetch('http://ip-api.com/json/?fields=status,message,countryCode,city,timezone')
     .then(res => res)
 
   return await response.json()
+}
+
+export const getNewIPLocationData = async () => {
+  const response = await fetch(`http://api.ipapi.com/api/check?access_key=${import.meta.env.IPAPI_KEY}`)
+    .then(res => res)
+  const responseData = await response.json()
+  console.log(responseData);
+
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { moonIcon, sunIcon, sunriseIcon, sunsetIcon } from "../assets/icons_svg"
 import './Clock.scss'
-import { ILocationData, getIPLocationData } from "./apisCalls"
+import { ILocationData, getIPLocationData, getNewIPLocationData } from "./apisCalls"
 
 const getCurrentTime = (locale: string): string => (
   new Date().toLocaleTimeString(locale, {
@@ -41,6 +41,13 @@ export const Clock = () => {
       if (responseData && responseData.status !== 'fail') setLocationData(responseData)
     }
     getData()
+
+    const getNewData = async () => {
+      const responseData = await getNewIPLocationData().then(data => data)
+      console.log(responseData);
+
+    }
+    getNewData()
   }, [])
 
   const [currentTime, setCurrentTime] = useState<string>(getCurrentTime('pl'))
