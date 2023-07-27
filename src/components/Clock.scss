@@ -12,14 +12,20 @@
   }
 
   h1 {
+    position: relative;
     font-size: 6.25rem;
     letter-spacing: -0.1563rem;
     line-height: 6.25rem;
 
-    span {
+    .abbr,
+    .am {
       font-size: 0.9375rem;
       font-weight: 400;
       letter-spacing: 0;
+    }
+
+    .am {
+      font-weight: 700;
     }
   }
 
@@ -32,7 +38,7 @@
   }
 }
 
-@media screen and (min-width: 668px) {
+@media screen and (min-width: 712px) {
   .clock-section {
     .greeting {
       font-size: 1.125rem;
@@ -47,7 +53,8 @@
       letter-spacing: -0.2737rem;
       line-height: 10.9375rem;
 
-      span {
+      .abbr,
+      .am {
         font-size: 2rem;
       }
     }
@@ -69,7 +76,8 @@
       letter-spacing: -0.3125rem;
       line-height: 12.5rem;
 
-      span {
+      .abbr,
+      .am {
         font-size: 2.5rem;
       }
     }
@@ -92,7 +100,8 @@
       letter-spacing: -0.4375rem;
       line-height: 15.625rem;
 
-      span {
+      .abbr,
+      .am {
         font-size: 2.75rem;
       }
     }
@@ -114,7 +123,8 @@
       letter-spacing: -0.625rem;
       line-height: 17.5rem;
 
-      span {
+      .abbr,
+      .am {
         font-size: 2.8rem;
       }
     }

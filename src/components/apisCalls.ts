@@ -35,3 +35,18 @@ export const getQuote = async (): Promise<string[] | null> => {
   const msg = response.message.content.replace('- ', '').split("\"")
   return [msg[1], msg[2].trimStart().trimEnd()]
 }
+
+export interface ILocationData {
+  status: string,
+  message?: string,
+  countryCode: string,
+  city: string,
+  timezone: string,
+}
+
+export const getIPLocationData = async () => {
+  const response = await fetch('http://ip-api.com/json/?fields=status,message,countryCode,city,timezone')
+    .then(res => res)
+
+  return await response.json()
+}
