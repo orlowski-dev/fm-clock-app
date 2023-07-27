@@ -9,7 +9,7 @@ export const getDataFromOpenAI = async () => {
       },
       body: JSON.stringify({
         model: 'gpt-3.5-turbo',
-        messages: [{ role: 'user', content: 'Generate random programming quote.' }]
+        messages: [{ role: 'user', content: 'Give me a programming quote.' }]
       })
     }).then((res) => res.json())
 
