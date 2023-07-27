@@ -40,11 +40,28 @@ export interface IGeoLocation {
   location?: {
     city: string,
     country: string,
+    lat: number,
+    lng: number,
   }
+  abbreviation?: string
 }
 
 export const getGeoLocation = async () => {
   const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${import.meta.env.VITE_GEO_API_KEY}`
   const response = await fetch(url).then(res => res)
+
   return await response.json()
+}
+
+export const getTimezoneInfo = async (lat: number, lng: number) => {
+  try {
+    const url = `https://api.timezonedb.com/v2.1/get-time-zone?key=${import.meta.env.VITE_TIMEZONE_DB}&format=json&by=position&lat=${lat}&lng=${lng}`
+    const response = await fetch(url).then(res => res)
+
+    return await response.json()
+  } catch (error) {
+    console.log(error);
+
+    return null
+  }
 }

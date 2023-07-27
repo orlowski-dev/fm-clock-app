@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { moonIcon, sunIcon, sunriseIcon, sunsetIcon } from "../assets/icons_svg"
 import './Clock.scss'
-import { IGeoLocation, getGeoLocation } from "./apisCalls"
+import { IGeoLocation, getGeoLocation, getTimezoneInfo } from "./apisCalls"
 
 const getCurrentTime = (locale: string): string => (
   new Date().toLocaleTimeString(locale, {
@@ -37,13 +37,15 @@ export const Clock = () => {
   // get ip location data
   useEffect(() => {
     const getData = async () => {
-      const response: IGeoLocation = await getGeoLocation().then(data => data)
-      if (!response.location) return
-      console.log(response);
-      setLocationData(response)
+      const location: IGeoLocation = await getGeoLocation().then(data => data)
+      if (!location.location) return
+      const abbr: IGeoLocation = await getTimezoneInfo(location.location.lat, location.location.lng)
+
+      setLocationData({ location: location.location, abbreviation: abbr.abbreviation })
     }
     getData()
   }, [])
+
 
   const [currentTime, setCurrentTime] = useState<string>(getCurrentTime(locationData?.location?.country || 'pl'))
   const [greeting, setGreeting] = useState(getGreeting())
@@ -74,7 +76,7 @@ export const Clock = () => {
       <p className="greeting">
         <img src={greeting.iconPath} alt="icon" />
         {greeting.text}</p>
-      <h1>{displayTime(currentTime)} <span className="abbr">BST</span></h1>
+      <h1>{displayTime(currentTime)} <span className="abbr">{locationData?.abbreviation}</span></h1>
       <p className="location">In {locationData?.location?.city}, {locationData?.location?.country}</p>
     </section>
   )
