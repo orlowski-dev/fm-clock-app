@@ -1,3 +1,7 @@
+:root {
+  --main-padding: 24px;
+}
+
 .bg {
   position: fixed;
   top: 0;
@@ -24,10 +28,21 @@
 }
 
 main {
-  padding: 24px;
+  width: 100%;
+  max-width: 1110px;
+  margin: 0 auto;
+  color: var(--white);
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 }
 
 @media screen and (min-width: 500px) {
+  :root {
+    --main-padding: 60px;
+  }
+
   .bg {
     background-image: url('./assets/images/bg-day-m.webp');
   }

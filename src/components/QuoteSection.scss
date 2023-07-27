@@ -5,6 +5,7 @@ $halfTransparetnDark: rgba($color: #303030, $alpha: 80%);
   color: var(--white);
   max-width: 573px;
   padding-right: 24px;
+  margin: var(--main-padding);
 
   blockquote,
   p {

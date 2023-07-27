@@ -1,0 +1,126 @@
+.clock-section {
+  padding: var(--main-padding);
+
+  .greeting {
+    text-transform: uppercase;
+    display: flex;
+    gap: 12px;
+    font-size: 0.9375rem;
+    letter-spacing: 0.1875rem;
+    line-height: 1.5625rem;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-size: 6.25rem;
+    letter-spacing: -0.1563rem;
+    line-height: 6.25rem;
+
+    span {
+      font-size: 0.9375rem;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+  }
+
+  .location {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1875rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media screen and (min-width: 668px) {
+  .clock-section {
+    .greeting {
+      font-size: 1.125rem;
+
+      &::after {
+        content: 'It\'s currently';
+      }
+    }
+
+    h1 {
+      font-size: 10.9375rem;
+      letter-spacing: -0.2737rem;
+      line-height: 10.9375rem;
+
+      span {
+        font-size: 2rem;
+      }
+    }
+
+    .location {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .clock-section {
+    .greeting {
+      font-size: 1.25rem;
+    }
+
+    h1 {
+      font-size: 12.5rem;
+      letter-spacing: -0.3125rem;
+      line-height: 12.5rem;
+
+      span {
+        font-size: 2.5rem;
+      }
+    }
+
+    .location {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+
+@media screen and (min-width: 1500px) {
+  .clock-section {
+    .greeting {
+      font-size: 1.375rem;
+    }
+
+    h1 {
+      font-size: 15.625rem;
+      letter-spacing: -0.4375rem;
+      line-height: 15.625rem;
+
+      span {
+        font-size: 2.75rem;
+      }
+    }
+
+    .location {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .clock-section {
+    .greeting {
+      font-size: 1.625rem;
+    }
+
+    h1 {
+      font-size: 17.5rem;
+      letter-spacing: -0.625rem;
+      line-height: 17.5rem;
+
+      span {
+        font-size: 2.8rem;
+      }
+    }
+
+    .location {
+      font-size: 1.5rem;
+    }
+  }
+}
