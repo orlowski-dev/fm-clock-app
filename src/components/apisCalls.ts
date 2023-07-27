@@ -42,10 +42,13 @@ export interface ILocationData {
   countryCode: string,
   city: string,
   timezone: string,
+  abbreviation?: string
 }
 
 export const getIPLocationData = async () => {
-  const response = await fetch('http://ip-api.com/json/?fields=status,message,countryCode,city,timezone')
+  const response = await fetch('http://ip-api.com/json/?fields=status,message,countryCode,city,timezone', {
+    method: 'POST'
+  })
     .then(res => res)
 
   return await response.json()
