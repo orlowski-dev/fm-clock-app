@@ -31,7 +31,6 @@ export const getDataFromOpenAI = async () => {
 export const getQuote = async (): Promise<string[] | null> => {
   const response = await getDataFromOpenAI().then(res => res)
   if (!response) return null
-  console.log(response)
 
   const msg = response.message.content.replace('- ', '').split("\"")
   return [msg[1], msg[2].trimStart().trimEnd()]

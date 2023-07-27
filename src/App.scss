@@ -15,6 +15,10 @@
   background-repeat: no-repeat;
   background-position: top center;
   filter: brightness(60%);
+
+  &.night {
+    background-image: url('./assets/images/bg-night-s.webp');
+  }
 }
 
 
@@ -45,12 +49,20 @@ main {
 
   .bg {
     background-image: url('./assets/images/bg-day-m.webp');
+
+    &.night {
+      background-image: url('./assets/images/bg-night-m.webp');
+    }
   }
 }
 
 @media screen and (min-width: 1000px) {
   .bg {
     background-image: url('./assets/images/bg-day-l.webp');
+
+    &.night {
+      background-image: url('./assets/images/bg-night-l.webp');
+    }
   }
 }
 
@@ -58,11 +70,19 @@ main {
 @media screen and (min-width: 1500px) {
   .bg {
     background-image: url('./assets/images/bg-day-xl.webp');
+
+    &.night {
+      background-image: url('./assets/images/bg-night-xl.webp');
+    }
   }
 }
 
 @media screen and (min-width: 2000px) {
   .bg {
     background-image: url('./assets/images/bg-day-xxl.webp');
+
+    &.night {
+      background-image: url('./assets/images/bg-night-xxl.webp');
+    }
   }
 }
