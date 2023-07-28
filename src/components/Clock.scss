@@ -112,6 +112,10 @@
   &.night-time {
     background-color: #00000091;
     color: var(--white);
+
+    .content footer a {
+      color: var(--white);
+    }
   }
 
   .container {
@@ -121,25 +125,33 @@
   }
 
   .content {
-    display: grid;
-    width: 100%;
+    .articles {
+      display: grid;
+      width: 100%;
 
-    article {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      article {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-      h2 {
-        font-size: 0.625rem;
-        letter-spacing: 0.125rem;
-        text-transform: uppercase;
-        font-weight: 400;
+        h2 {
+          font-size: 0.625rem;
+          letter-spacing: 0.125rem;
+          text-transform: uppercase;
+          font-weight: 400;
+        }
+
+        p {
+          font-size: 1.25rem;
+          font-weight: bold;
+          text-align: right;
+        }
       }
+    }
 
-      p {
-        font-size: 1.25rem;
-        font-weight: bold;
-        text-align: right;
+    footer {
+      a {
+        color: var(--dark);
       }
     }
   }
@@ -176,19 +188,21 @@
   .clock-more {
 
     .content {
-      grid-template-columns: repeat(2, 1fr);
+      .articles {
+        grid-template-columns: repeat(2, 1fr);
 
-      article {
-        flex-flow: column;
-        align-items: flex-start;
+        article {
+          flex-flow: column;
+          align-items: flex-start;
 
-        h2 {
-          font-size: 1.125rem;
-        }
+          h2 {
+            font-size: 1.125rem;
+          }
 
-        p {
-          font-size: 2.5rem;
-          line-height: 0;
+          p {
+            font-size: 2.5rem;
+            line-height: 0;
+          }
         }
       }
     }

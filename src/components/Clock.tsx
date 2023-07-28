@@ -3,6 +3,7 @@ import { arrowDownIcon, locationDisableIcon, moonIcon, sunIcon, sunriseIcon, sun
 import './Clock.scss'
 import { IGeoLocation, getGeoLocation, getTimezoneInfo } from "./apisCalls"
 import { IStates } from "../App"
+import { Footer } from "./Footer"
 
 const getCurrentTime = (locale: string): string => (
   new Date().toLocaleTimeString(locale, {
@@ -170,22 +171,25 @@ export const Clock = ({ states }: IStates) => {
         <div className="container">
           <div className="content">
             <h2 className="visually-hidden">More</h2>
-            <article>
-              <h2>current timezone</h2>
-              <p>{locationData?.zoneName || '-'}</p>
-            </article>
-            <article>
-              <h2>day of the year</h2>
-              <p>{calculatedDate.dayOfYear}</p>
-            </article>
-            <article>
-              <h2>day of the week</h2>
-              <p>{calculatedDate.dayOfWeak}</p>
-            </article>
-            <article>
-              <h2>week number</h2>
-              <p>{calculatedDate.weekNumber}</p>
-            </article>
+            <div className="articles">
+              <article>
+                <h2>current timezone</h2>
+                <p>{locationData?.zoneName || '-'}</p>
+              </article>
+              <article>
+                <h2>day of the year</h2>
+                <p>{calculatedDate.dayOfYear}</p>
+              </article>
+              <article>
+                <h2>day of the week</h2>
+                <p>{calculatedDate.dayOfWeak}</p>
+              </article>
+              <article>
+                <h2>week number</h2>
+                <p>{calculatedDate.weekNumber}</p>
+              </article>
+            </div>
+            <Footer />
           </div>
         </div>
       </section>
