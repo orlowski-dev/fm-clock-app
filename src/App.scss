@@ -35,10 +35,9 @@ main {
   max-width: 1110px;
   margin: 0 auto;
   color: var(--white);
-  height: 100vh;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
+  height: calc(100vh - var(--main-padding));
+  top: 0;
+  left: 0;
 }
 
 @media screen and (min-width: 500px) {

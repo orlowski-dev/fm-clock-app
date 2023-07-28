@@ -1,5 +1,20 @@
+.clock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transition: transform .2s ease;
+
+  &.more-visible {
+    transform: translate(0);
+  }
+}
+
 .clock-section {
   padding: var(--main-padding);
+  align-self: flex-end;
+  max-width: 1110px;
+  margin: 0 auto;
 
   .greeting {
     text-transform: uppercase;
@@ -8,14 +23,14 @@
     font-size: 0.9375rem;
     letter-spacing: 0.1875rem;
     line-height: 1.5625rem;
-    margin-bottom: 24px;
+    margin-bottom: 10px;
   }
 
   h1 {
     position: relative;
-    font-size: 6.25rem;
+    font-size: 5.25rem;
     letter-spacing: -0.1563rem;
-    line-height: 6.25rem;
+
     margin: 0 !important;
 
     .abbr,
@@ -36,10 +51,97 @@
     text-transform: uppercase;
     letter-spacing: 0.1875rem;
     line-height: 1.75rem;
+    padding: 0;
+    display: inline-block;
+
+    &.error {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 400;
+      font-size: 0.8125rem;
+    }
+  }
+
+  .button-area {
+    margin-top: 24px;
+  }
+
+  .btn-show-more {
+    border-radius: 100px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    background-color: var(--white);
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+    padding: 6px;
+    padding-left: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2344rem;
+    border: none;
+    cursor: pointer;
+    min-width: 130px;
+
+    img {
+      transition: transform .3s ease;
+    }
+
+    &.change-state {
+      img {
+        transform: rotate(-180deg);
+      }
+    }
   }
 }
 
+.clock-more {
+  background-color: #ffffff91;
+  backdrop-filter: blur(30px);
+  align-items: center;
+  color: var(--dark);
+
+  &.night-time {
+    background-color: #00000091;
+    color: var(--white);
+  }
+
+  .container {
+    max-width: 1110px;
+    margin: 0 auto;
+    padding: 60px var(--main-padding);
+  }
+
+  .content {
+    display: grid;
+    width: 100%;
+
+    article {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      h2 {
+        font-size: 0.625rem;
+        letter-spacing: 0.125rem;
+        text-transform: uppercase;
+        font-weight: 400;
+      }
+
+      p {
+        font-size: 1.25rem;
+        font-weight: bold;
+        text-align: right;
+      }
+    }
+  }
+
+}
+
 @media screen and (min-width: 712px) {
+
   .clock-section {
     .greeting {
       font-size: 1.125rem;
@@ -52,7 +154,7 @@
     h1 {
       font-size: 10.9375rem;
       letter-spacing: -0.2737rem;
-      line-height: 10.9375rem;
+
 
       .abbr,
       .am {
@@ -62,6 +164,27 @@
 
     .location {
       font-size: 1.125rem;
+    }
+  }
+
+  .clock-more {
+
+    .content {
+      grid-template-columns: repeat(2, 1fr);
+
+      article {
+        flex-flow: column;
+        align-items: flex-start;
+
+        h2 {
+          font-size: 1.125rem;
+        }
+
+        p {
+          font-size: 2.5rem;
+          line-height: 0;
+        }
+      }
     }
   }
 }
@@ -75,7 +198,7 @@
     h1 {
       font-size: 12.5rem;
       letter-spacing: -0.3125rem;
-      line-height: 12.5rem;
+
 
       .abbr,
       .am {
@@ -99,7 +222,7 @@
     h1 {
       font-size: 15.625rem;
       letter-spacing: -0.4375rem;
-      line-height: 15.625rem;
+
 
       .abbr,
       .am {
@@ -122,7 +245,7 @@
     h1 {
       font-size: 17.5rem;
       letter-spacing: -0.625rem;
-      line-height: 17.5rem;
+
 
       .abbr,
       .am {
@@ -133,5 +256,15 @@
     .location {
       font-size: 1.5rem;
     }
+  }
+}
+
+@keyframes moreAnim {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
   }
 }

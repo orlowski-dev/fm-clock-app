@@ -6,6 +6,13 @@ $halfTransparetnDark: rgba($color: #303030, $alpha: 80%);
   max-width: 573px;
   padding-right: 24px;
   margin: var(--main-padding);
+  transition: opacity .1s ease;
+
+  &.hide {
+    height: 0;
+    opacity: 0;
+    user-select: none;
+  }
 
   blockquote,
   p {

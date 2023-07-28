@@ -43,14 +43,20 @@ export interface IGeoLocation {
     lat: number,
     lng: number,
   }
-  abbreviation?: string
+  abbreviation?: string,
+  errorMsg?: string,
+  zoneName?: string
 }
 
 export const getGeoLocation = async () => {
-  const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${import.meta.env.VITE_GEO_API_KEY}`
-  const response = await fetch(url).then(res => res)
+  try {
+    const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${import.meta.env.VITE_GEO_API_KEY}`
+    const response = await fetch(url).then(res => res)
 
-  return await response.json()
+    return await response.json()
+  } catch (error) {
+    return null
+  }
 }
 
 export const getTimezoneInfo = async (lat: number, lng: number) => {

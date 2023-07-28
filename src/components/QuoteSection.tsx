@@ -2,13 +2,14 @@ import { useRef, useState } from 'react'
 import './QuoteSection.scss'
 import { refreshIcon } from '../assets/icons_svg'
 import { getQuote } from './apisCalls'
+import { IStates } from '../App'
 
 interface IQuote {
   content: string,
   author: string
 }
 
-export const QuoteSection = () => {
+export const QuoteSection = ({ states }: IStates) => {
   const [isGenerateBtnDisabled, setIsGenerateBtnDisabled] = useState(false)
   const refs = {
     gettingDataErrorSpan: useRef<HTMLSpanElement>(null)
@@ -31,7 +32,7 @@ export const QuoteSection = () => {
     setIsGenerateBtnDisabled(false)
   }
 
-  return <section className="quote-section">
+  return <section className={`quote-section ${states.isClockMoreVisible?.value ? 'hide' : ''}`}>
     <h2 className="visually-hidden">Programming quote</h2>
     <blockquote>
       “{quote.content}”

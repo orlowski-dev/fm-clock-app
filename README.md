@@ -7,3 +7,6 @@ React + Vite + TypeScritp
 - [geo.ipify](https://geo.ipify.org/)
 - [timezonedb](https://timezonedb.com/)
 ## Links
+
+## Usefull resources
+- [JS Date obj](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date?retiredLocale=pl)
