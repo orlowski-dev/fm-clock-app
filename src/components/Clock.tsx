@@ -159,7 +159,7 @@ export const Clock = ({ states }: IStates) => {
             onClick={handleClick}
             ref={clockMoreRefs.button}
           >
-            {states.isClockMoreVisible?.value && 'less' || 'more'}<img src={arrowDownIcon} alt='arrow icon' />
+            {states.isClockMoreVisible?.value && <span>less</span> || <span>more</span>}<img src={arrowDownIcon} alt='arrow icon' />
           </button>
         </div>
       </section>

@@ -69,10 +69,7 @@
 
   .btn-show-more {
     border-radius: 100px;
-    text-transform: uppercase;
-    font-size: 0.75rem;
     background-color: var(--white);
-    color: var(--dark);
     display: flex;
     align-items: center;
     gap: 12px;
@@ -80,10 +77,19 @@
     padding: 6px;
     padding-left: 20px;
     font-weight: 700;
-    letter-spacing: 0.2344rem;
+
     border: none;
     cursor: pointer;
     min-width: 130px;
+
+    span {
+      width: 100%;
+      text-align: center;
+      letter-spacing: 0.2344rem;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: var(--dark);
+    }
 
     img {
       transition: transform .3s ease;
